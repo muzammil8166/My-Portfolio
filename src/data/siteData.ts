@@ -67,16 +67,16 @@ export const NAV: { id: NavSectionId; label: string }[] = [
 ]
 
 export const SOCIALS: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/', icon: FaGithub },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: FaLinkedin },
-  { label: 'Twitter/X', href: 'https://x.com/', icon: FaXTwitter },
+  { label: 'GitHub', href: 'https://github.com/Muzammil8166', icon: FaGithub },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/muzammil-kureshi-0395432a5', icon: FaLinkedin },
+  { label: 'Twitter/X', href: 'https://x.com/Muzammil_8166', icon: FaXTwitter },
 ]
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
     title: 'Frontend',
     skills: [
-      { name: 'React', level: 92 },
+      { name: 'React', level: 95 },
       { name: 'TypeScript', level: 90 },
       { name: 'Next.js', level: 85 },
       { name: 'Tailwind CSS', level: 90 },

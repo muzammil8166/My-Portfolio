@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { MapPin, Briefcase, Languages, Sparkles } from 'lucide-react'
 import { Container } from './Container'
 import { SectionHeading } from './SectionHeading'
+import profile from '../assets/SAVE_20251031_225315.jpg.jpeg';
 
 export function About() {
   return (
@@ -23,7 +24,7 @@ export function About() {
           >
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <img
-                src="/profile.svg"
+                src={profile}
                 alt="Profile"
                 loading="lazy"
                 className="h-full w-full object-cover opacity-90"
@@ -33,7 +34,7 @@ export function About() {
             <div className="p-6">
               <div className="text-sm font-semibold">Quick story</div>
               <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--muted))]">
-                Over the last <span className="text-[rgb(var(--fg))]">7+</span>{' '}
+                Over the last <span className="text-[rgb(var(--fg))]">5+</span>{' '}
                 years, I&apos;ve helped teams deliver full-stack products—shipping
                 accessible UI, reliable APIs, and performance-first experiences.
                 I love turning complex requirements into simple, maintainable
@@ -89,7 +90,7 @@ export function About() {
               <Fact
                 icon={<MapPin className="h-4 w-4" />}
                 label="Location"
-                value="Your City / Remote"
+                value="Surat / OnSite"
               />
               <Fact
                 icon={<Briefcase className="h-4 w-4" />}
@@ -99,12 +100,12 @@ export function About() {
               <Fact
                 icon={<Languages className="h-4 w-4" />}
                 label="Languages"
-                value="English, Urdu"
+                value="English, Hindi"
               />
               <Fact
                 icon={<Sparkles className="h-4 w-4" />}
                 label="Experience"
-                value="7+ years"
+                value="5+ years"
               />
             </div>
           </motion.div>
