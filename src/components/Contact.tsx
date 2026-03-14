@@ -1,0 +1,190 @@
+import { motion } from 'framer-motion'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { Mail, MapPin, Send } from 'lucide-react'
+import { SITE, SOCIALS } from '../data/siteData'
+import { Button } from './Button'
+import { Container } from './Container'
+import { SectionHeading } from './SectionHeading'
+
+const schema = z.object({
+  name: z.string().min(2, 'Please enter your name'),
+  email: z.string().email('Please enter a valid email'),
+  message: z.string().min(10, 'Message should be at least 10 characters'),
+})
+
+type FormValues = z.infer<typeof schema>
+
+export function Contact() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+    reset,
+  } = useForm<FormValues>({
+    resolver: zodResolver(schema),
+    defaultValues: { name: '', email: '', message: '' },
+  })
+
+  async function onSubmit(values: FormValues) {
+    // Demo behavior: open mailto; swap with real endpoint later.
+    const subject = encodeURIComponent(`Portfolio inquiry from ${values.name}`)
+    const body = encodeURIComponent(`${values.message}\n\nFrom: ${values.email}`)
+    window.location.assign(
+      `mailto:${SITE.email}?subject=${subject}&body=${body}`,
+    )
+    reset()
+  }
+
+  return (
+    <section id="contact" className="py-16 sm:py-20">
+      <Container>
+        <SectionHeading
+          eyebrow="Contact"
+          title="Let’s build something great"
+          subtitle="Have a role, contract, or idea? Send a message and I’ll reply quickly."
+        />
+
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <motion.form
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.55 }}
+            onSubmit={handleSubmit(onSubmit)}
+            className="glass rounded-3xl p-6"
+          >
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Field
+                label="Name"
+                error={errors.name?.message}
+                input={
+                  <input
+                    className="h-11 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-sm text-[rgb(var(--fg))] outline-none transition focus:border-white/20 focus:ring-2 focus:ring-[rgb(var(--ring))]/40"
+                    placeholder="Your name"
+                    {...register('name')}
+                  />
+                }
+              />
+              <Field
+                label="Email"
+                error={errors.email?.message}
+                input={
+                  <input
+                    className="h-11 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-sm text-[rgb(var(--fg))] outline-none transition focus:border-white/20 focus:ring-2 focus:ring-[rgb(var(--ring))]/40"
+                    placeholder="you@email.com"
+                    {...register('email')}
+                  />
+                }
+              />
+            </div>
+
+            <div className="mt-4">
+              <Field
+                label="Message"
+                error={errors.message?.message}
+                input={
+                  <textarea
+                    className="min-h-[140px] w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[rgb(var(--fg))] outline-none transition focus:border-white/20 focus:ring-2 focus:ring-[rgb(var(--ring))]/40"
+                    placeholder="Tell me about your project..."
+                    {...register('message')}
+                  />
+                }
+              />
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+              <div className="text-xs text-[rgb(var(--muted))]">
+                By sending this form, you’ll open your email client.
+              </div>
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending…' : 'Send message'}
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+
+            {isSubmitSuccessful ? (
+              <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
+                Thanks! Your email client should open shortly.
+              </div>
+            ) : null}
+          </motion.form>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.55, delay: 0.05 }}
+            className="grid gap-4"
+          >
+            <div className="glass rounded-3xl p-6">
+              <div className="text-sm font-semibold">Direct</div>
+              <div className="mt-4 space-y-3 text-sm">
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-[rgb(var(--fg))] transition hover:bg-white/10"
+                >
+                  <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/5 ring-1 ring-white/10">
+                    <Mail className="h-4 w-4" />
+                  </span>
+                  <span>
+                    <div className="text-xs text-[rgb(var(--muted))]">Email</div>
+                    <div className="font-medium">{SITE.email}</div>
+                  </span>
+                </a>
+
+                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-[rgb(var(--fg))]">
+                  <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/5 ring-1 ring-white/10">
+                    <MapPin className="h-4 w-4" />
+                  </span>
+                  <span>
+                    <div className="text-xs text-[rgb(var(--muted))]">
+                      Location
+                    </div>
+                    <div className="font-medium">{SITE.location}</div>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass rounded-3xl p-6">
+              <div className="text-sm font-semibold">Social</div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {SOCIALS.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-[rgb(var(--fg))]/80 transition hover:-translate-y-[1px] hover:bg-white/10 hover:text-[rgb(var(--fg))]"
+                  >
+                    <s.icon className="h-4 w-4" />
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+function Field(props: {
+  label: string
+  error?: string
+  input: React.ReactNode
+}) {
+  return (
+    <label className="block">
+      <div className="mb-2 flex items-center justify-between gap-2 text-xs font-medium text-[rgb(var(--muted))]">
+        <span>{props.label}</span>
+        {props.error ? <span className="text-red-300">{props.error}</span> : null}
+      </div>
+      {props.input}
+    </label>
+  )
+}
+

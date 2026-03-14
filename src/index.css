@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* App design tokens (dark default; toggle via [data-theme="light"]) */
+:root {
+  --bg: 10 10 14;
+  --fg: 231 233 240;
+  --muted: 156 163 175;
+  --card: 18 19 27;
+  --border: 255 255 255;
+  --accent: 168 85 247;
+  --ring: 168 85 247;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: 248 250 252;
+  --fg: 15 23 42;
+  --muted: 71 85 105;
+  --card: 255 255 255;
+  --border: 15 23 42;
+  --accent: 109 40 217;
+  --ring: 109 40 217;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+::selection {
+  background: rgba(var(--accent) / 0.25);
+}
+
+/* nicer scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* utility for subtle glass */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+

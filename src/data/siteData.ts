@@ -1,0 +1,185 @@
+import type { IconType } from 'react-icons'
+import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6'
+
+export type ThemeMode = 'dark' | 'light'
+
+export type NavSectionId =
+  | 'home'
+  | 'about'
+  | 'skills'
+  | 'projects'
+  | 'experience'
+  | 'github'
+  | 'contact'
+
+export type SocialLink = {
+  label: string
+  href: string
+  icon: IconType
+}
+
+export type Skill = { name: string; level: number }
+export type SkillGroup = { title: string; skills: Skill[] }
+
+export type Project = {
+  title: string
+  description: string
+  image: string
+  tags: string[]
+  githubUrl: string
+  liveUrl?: string
+}
+
+export type ExperienceItem = {
+  company: string
+  role: string
+  duration: string
+  achievements: string[]
+  tech: string[]
+}
+
+export const SITE = {
+  name: 'Your Name',
+  role: 'Senior MERN Stack Developer',
+  location: 'Remote / Your City',
+  email: 'you@email.com',
+  tagline:
+    'I build fast, scalable web products with delightful UX—React on the frontend, Node on the backend, and pragmatic architecture everywhere.',
+  typingPhrases: [
+    'React + TypeScript',
+    'Node.js + Express',
+    'MongoDB + PostgreSQL',
+    'Performance + UX',
+  ],
+  resumeUrl: '/resume.pdf',
+  githubUsername: import.meta.env.VITE_GITHUB_USERNAME || 'octocat',
+}
+
+export const NAV: { id: NavSectionId; label: string }[] = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'github', label: 'GitHub' },
+  { id: 'contact', label: 'Contact' },
+]
+
+export const SOCIALS: SocialLink[] = [
+  { label: 'GitHub', href: 'https://github.com/', icon: FaGithub },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: FaLinkedin },
+  { label: 'Twitter/X', href: 'https://x.com/', icon: FaXTwitter },
+]
+
+export const SKILL_GROUPS: SkillGroup[] = [
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'React', level: 92 },
+      { name: 'TypeScript', level: 90 },
+      { name: 'Next.js', level: 85 },
+      { name: 'Tailwind CSS', level: 90 },
+      { name: 'Redux', level: 80 },
+    ],
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: 'Node.js', level: 90 },
+      { name: 'Express.js', level: 88 },
+      { name: 'REST APIs', level: 92 },
+      { name: 'GraphQL', level: 78 },
+    ],
+  },
+  {
+    title: 'Database',
+    skills: [
+      { name: 'MongoDB', level: 90 },
+      { name: 'PostgreSQL', level: 80 },
+      { name: 'Firebase', level: 75 },
+    ],
+  },
+  {
+    title: 'Tools & DevOps',
+    skills: [
+      { name: 'Git', level: 90 },
+      { name: 'Docker', level: 78 },
+      { name: 'AWS', level: 72 },
+      { name: 'CI/CD', level: 75 },
+      { name: 'Vercel', level: 85 },
+    ],
+  },
+]
+
+export const PROJECTS: Project[] = [
+  {
+    title: 'Full Stack E-commerce',
+    description:
+      'A production-grade storefront with auth, cart/checkout, admin dashboards, and search—optimized for performance and conversion.',
+    image: '/project-ecommerce.svg',
+    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    githubUrl: 'https://github.com/',
+    liveUrl: 'https://example.com',
+  },
+  {
+    title: 'Real-time Chat App',
+    description:
+      'Socket.io powered chat with presence, typing indicators, DMs, and message search—built for low latency at scale.',
+    image: '/project-chat.svg',
+    tags: ['React', 'Socket.io', 'Express', 'Redis'],
+    githubUrl: 'https://github.com/',
+    liveUrl: 'https://example.com',
+  },
+  {
+    title: 'SaaS Dashboard',
+    description:
+      'Role-based analytics dashboard with subscriptions, feature flags, and a polished design system.',
+    image: '/project-saas.svg',
+    tags: ['TypeScript', 'React', 'PostgreSQL', 'Prisma'],
+    githubUrl: 'https://github.com/',
+    liveUrl: 'https://example.com',
+  },
+  {
+    title: 'AI Blog Platform',
+    description:
+      'AI-assisted authoring, markdown workflows, and SEO-focused publishing—built with performance-first rendering.',
+    image: '/project-ai-blog.svg',
+    tags: ['Next.js', 'OpenAI', 'Tailwind', 'MDX'],
+    githubUrl: 'https://github.com/',
+    liveUrl: 'https://example.com',
+  },
+  {
+    title: 'Project Management Tool',
+    description:
+      'Kanban + timelines, real-time collaboration, and smart notifications—designed for high-leverage teams.',
+    image: '/project-pm.svg',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'WebSockets'],
+    githubUrl: 'https://github.com/',
+    liveUrl: 'https://example.com',
+  },
+]
+
+export const EXPERIENCE: ExperienceItem[] = [
+  {
+    company: 'Company Name',
+    role: 'Senior MERN Stack Developer',
+    duration: '2023 — Present',
+    achievements: [
+      'Led the redesign of a multi-tenant SaaS dashboard, improving task completion by 28%.',
+      'Introduced performance budgets and profiling workflows, reducing LCP by 35%.',
+      'Built a reusable component library and patterns for scalable feature delivery.',
+    ],
+    tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'AWS'],
+  },
+  {
+    company: 'Previous Company',
+    role: 'Full Stack Developer',
+    duration: '2020 — 2023',
+    achievements: [
+      'Shipped real-time collaboration features using websockets and event-driven services.',
+      'Implemented CI/CD pipelines and automated quality gates across repositories.',
+    ],
+    tech: ['React', 'Express', 'PostgreSQL', 'Docker', 'CI/CD'],
+  },
+]
+
