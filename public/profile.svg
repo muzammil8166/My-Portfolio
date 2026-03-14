@@ -22,7 +22,7 @@
     <circle cx="170" cy="205" r="96" fill="rgba(255,255,255,0.10)" stroke="url(#stroke)" stroke-width="4"/>
     <path d="M66 420c35-85 117-140 206-140s171 55 206 140" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
     <text x="360" y="205" fill="rgba(231,233,240,0.92)" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto" font-size="44" font-weight="700">
-      Your Name
+      
     </text>
     <text x="360" y="255" fill="rgba(156,163,175,0.95)" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto" font-size="22">
       Senior MERN Stack Developer

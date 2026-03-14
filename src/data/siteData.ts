@@ -1,5 +1,6 @@
 import type { IconType } from 'react-icons'
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6'
+import resumePdf from '../assets/Muzammil_Kureshi_Resume.pdf'
 
 export type ThemeMode = 'dark' | 'light'
 
@@ -39,10 +40,10 @@ export type ExperienceItem = {
 }
 
 export const SITE = {
-  name: 'Your Name',
+  name: 'Muzammil',
   role: 'Senior MERN Stack Developer',
-  location: 'Remote / Your City',
-  email: 'you@email.com',
+  location: 'Surat',
+  email: 'muzammilkureshi.in@gmail.com',
   tagline:
     'I build fast, scalable web products with delightful UX—React on the frontend, Node on the backend, and pragmatic architecture everywhere.',
   typingPhrases: [
@@ -51,7 +52,7 @@ export const SITE = {
     'MongoDB + PostgreSQL',
     'Performance + UX',
   ],
-  resumeUrl: '/resume.pdf',
+  resumeUrl: resumePdf as string,
   githubUsername: import.meta.env.VITE_GITHUB_USERNAME || 'octocat',
 }
 
