@@ -78,7 +78,7 @@ export function Hero() {
                   &nbsp;
                 </span>
               </div>
-
+              <br />
               <Button onClick={() => scrollTo('projects')}>
                 View Projects <ArrowDownRight className="h-4 w-4" />
               </Button>
