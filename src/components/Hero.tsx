@@ -71,6 +71,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.24 }}
               className="mt-6 flex flex-wrap items-center gap-3"
             >
+              <div className='flex flex-col gap-3'>
               <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-2 font-mono text-sm text-[rgb(var(--fg))]">
                 <span className="text-[rgb(var(--muted))]">$</span>{' '}
                 <span className="text-purple-300">{text}</span>
@@ -78,7 +79,8 @@ export function Hero() {
                   &nbsp;
                 </span>
               </div>
-              <br />
+             
+             <div className='flex felx-row gap-3'>
               <Button onClick={() => scrollTo('projects')}>
                 View Projects <ArrowDownRight className="h-4 w-4" />
               </Button>
@@ -88,6 +90,8 @@ export function Hero() {
                   Download Resume <Download className="h-4 w-4" />
                 </Button>
               </a>
+            </div>
+            </div>
             </motion.div>
 
             <motion.div

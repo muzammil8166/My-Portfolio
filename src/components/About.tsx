@@ -90,7 +90,7 @@ export function About() {
               <Fact
                 icon={<MapPin className="h-4 w-4" />}
                 label="Location"
-                value="Surat / OnSite"
+                value="Surat / OnSite/Hybrid"
               />
               <Fact
                 icon={<Briefcase className="h-4 w-4" />}
