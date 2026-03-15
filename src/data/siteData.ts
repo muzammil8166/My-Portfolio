@@ -41,7 +41,7 @@ export type ExperienceItem = {
 
 export const SITE = {
   name: 'Muzammil',
-  role: 'Senior MERN Stack Developer',
+  role: 'Junior MERN Stack Developer',
   location: 'Surat',
   email: 'muzammilkureshi.in@gmail.com',
   tagline:
@@ -119,7 +119,7 @@ export const PROJECTS: Project[] = [
       'A production-grade storefront with auth, cart/checkout, admin dashboards, and search—optimized for performance and conversion.',
     image: '/project-ecommerce.svg',
     tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    githubUrl: 'https://github.com/',
+    githubUrl: 'https://github.com/Muzammil8166/',
     liveUrl: 'https://example.com',
   },
   {
@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
       'Socket.io powered chat with presence, typing indicators, DMs, and message search—built for low latency at scale.',
     image: '/project-chat.svg',
     tags: ['React', 'Socket.io', 'Express', 'Redis'],
-    githubUrl: 'https://github.com/',
+    githubUrl: 'https://github.com/Muzammil8166/',
     liveUrl: 'https://example.com',
   },
   {
@@ -137,7 +137,7 @@ export const PROJECTS: Project[] = [
       'Role-based analytics dashboard with subscriptions, feature flags, and a polished design system.',
     image: '/project-saas.svg',
     tags: ['TypeScript', 'React', 'PostgreSQL', 'Prisma'],
-    githubUrl: 'https://github.com/',
+    githubUrl: 'https://github.com/Muzammil8166/',
     liveUrl: 'https://example.com',
   },
   {
@@ -146,7 +146,7 @@ export const PROJECTS: Project[] = [
       'AI-assisted authoring, markdown workflows, and SEO-focused publishing—built with performance-first rendering.',
     image: '/project-ai-blog.svg',
     tags: ['Next.js', 'OpenAI', 'Tailwind', 'MDX'],
-    githubUrl: 'https://github.com/',
+    githubUrl: 'https://github.com/Muzammil8166/',
     liveUrl: 'https://example.com',
   },
   {
@@ -155,7 +155,7 @@ export const PROJECTS: Project[] = [
       'Kanban + timelines, real-time collaboration, and smart notifications—designed for high-leverage teams.',
     image: '/project-pm.svg',
     tags: ['React', 'Node.js', 'PostgreSQL', 'WebSockets'],
-    githubUrl: 'https://github.com/',
+    githubUrl: 'https://github.com/Muzammil8166/',
     liveUrl: 'https://example.com',
   },
 ]
