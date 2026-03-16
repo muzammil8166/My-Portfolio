@@ -53,7 +53,7 @@ export const SITE = {
     'Performance + UX',
   ],
   resumeUrl: resumePdf as string,
-  githubUsername: import.meta.env.VITE_GITHUB_USERNAME || 'octocat',
+  githubUsername: import.meta.env.VITE_GITHUB_USERNAME || 'Muzammil8166',
 }
 
 export const NAV: { id: NavSectionId; label: string }[] = [

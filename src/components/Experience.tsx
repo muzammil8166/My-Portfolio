@@ -69,7 +69,7 @@ export function Experience() {
                 </div>
 
                 <div className="absolute left-3 top-6 grid h-6 w-6 place-items-center rounded-full border border-white/15 bg-[rgb(var(--card))] sm:left-1/2 sm:-translate-x-1/2">
-                  <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400" />
+                  <div className="h-2.5 w-2.5 relet rounded-full bg-gradient-to-r from-purple-500 to-cyan-400" />
                 </div>
               </motion.div>
             ))}
