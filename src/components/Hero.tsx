@@ -72,24 +72,24 @@ export function Hero() {
               className="mt-6 flex flex-wrap items-center gap-3"
             >
               <div className='flex flex-col gap-3'>
-              <div className="rounded-2xl border border-black/10 bg-white/5 px-4 py-2 font-mono text-sm text-[rgb(var(--fg))]">
-                <span className="text-[rgb(var(--muted))]">$</span>{' '}
-                <span className="text-purple-500">{text}</span>
-                <span className="ml-1 inline-block h-4 w-[3px] animate-pulse rounded-full bg-[rgb(var(--accent))] align-[-2px]" />
-              </div>
-             
-             <div className='flex felx-row gap-3'>
-              <Button onClick={() => scrollTo('projects')}>
-                View Projects <ArrowDownRight className="h-4 w-4" />
-              </Button>
+                <div className="rounded-2xl border border-black/10 bg-white/5 px-4 py-2 font-mono text-sm text-[rgb(var(--fg))]">
+                  <span className="text-[rgb(var(--muted))]">$</span>{' '}
+                  <span className="text-purple-500">{text}</span>
+                  <span className="ml-1 inline-block h-4 w-[3px] animate-pulse rounded-full bg-[rgb(var(--accent))] align-[-2px]" />
+                </div>
 
-              <a href={SITE.resumeUrl} download className="inline-flex">
-                <Button variant="secondary">
-                  Download Resume <Download className="h-4 w-4" />
-                </Button>
-              </a>
-            </div>
-            </div>
+                <div className="flex gap-3">
+                  <Button onClick={() => scrollTo('projects')}>
+                    View Projects <ArrowDownRight className="h-4 w-4" />
+                  </Button>
+
+                  <a href={SITE.resumeUrl} download className="inline-flex">
+                    <Button variant="secondary">
+                      Download Resume <Download className="h-4 w-4" />
+                    </Button>
+                  </a>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div

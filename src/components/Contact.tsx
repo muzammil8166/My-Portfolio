@@ -7,6 +7,7 @@ import { SITE, SOCIALS } from '../data/siteData'
 import { Button } from './Button'
 import { Container } from './Container'
 import { SectionHeading } from './SectionHeading'
+import emailjs from "@emailjs/browser"
 
 const schema = z.object({
   name: z.string().min(2, 'Please enter your name'),
@@ -17,6 +18,30 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>
 
 export function Contact() {
+
+  async function onSubmit(values: FormValues) {
+
+    try {
+
+      await emailjs.send(
+        "service_3v9awnc", // service id
+        "template_xjeb5ap",  // template id
+        {
+          name: values.name,
+          email: values.email,
+          message: values.message,
+        },
+        "gntrbXVFtXw1f1A3B"
+      )
+
+      alert("Message sent successfully 🚀")
+      reset()
+
+    } catch (error) {
+      console.log(error)
+      alert("Failed to send message")
+    }
+  }
   const {
     register,
     handleSubmit,
@@ -27,15 +52,7 @@ export function Contact() {
     defaultValues: { name: '', email: '', message: '' },
   })
 
-  async function onSubmit(values: FormValues) {
-    // Demo behavior: open mailto; swap with real endpoint later.
-    const subject = encodeURIComponent(`Portfolio inquiry from ${values.name}`)
-    const body = encodeURIComponent(`${values.message}\n\nFrom: ${values.email}`)
-    window.location.assign(
-      `mailto:${SITE.email}?subject=${subject}&body=${body}`,
-    )
-    reset()
-  }
+
 
   return (
     <section id="contact" className="py-16 sm:py-20">
@@ -105,8 +122,8 @@ export function Contact() {
             </div>
 
             {isSubmitSuccessful ? (
-              <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
-                Thanks! Your email client should open shortly.
+              <div className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
+                🚀 Message sent! I'll get back to you soon.
               </div>
             ) : null}
           </motion.form>
