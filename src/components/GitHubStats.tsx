@@ -54,10 +54,10 @@ export function GitHubStats() {
     const stars = (repos ?? []).reduce((acc, r) => acc + (r.stargazers_count || 0), 0)
     const forks = (repos ?? []).reduce((acc, r) => acc + (r.forks_count || 0), 0)
     const langs = new Map<string, number>()
-    ;(repos ?? []).forEach((r) => {
-      if (!r.language) return
-      langs.set(r.language, (langs.get(r.language) ?? 0) + 1)
-    })
+      ; (repos ?? []).forEach((r) => {
+        if (!r.language) return
+        langs.set(r.language, (langs.get(r.language) ?? 0) + 1)
+      })
     const topLangs = Array.from(langs.entries())
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5)
@@ -101,7 +101,7 @@ export function GitHubStats() {
         <SectionHeading
           eyebrow="GitHub"
           title="Open-source & activity"
-          subtitle="Live stats powered by the GitHub API (set your username via VITE_GITHUB_USERNAME)."
+          subtitle="Live stats powered by the GitHub API."
         />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">

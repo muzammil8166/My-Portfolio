@@ -3,44 +3,6 @@ import { Container } from './Container'
 import { SectionHeading } from './SectionHeading'
 import { EXPERIENCE } from '../data/siteData'
 
-type ExperienceItem = (typeof EXPERIENCE)[number]
-
-function CardContent({ item }: { item: ExperienceItem }) {
-  return (
-    <>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <div className="text-sm font-semibold">{item.role}</div>
-          <div className="mt-1 text-sm text-[rgb(var(--muted))]">{item.company}</div>
-        </div>
-        <div className="rounded-full bg-white/5 px-3 py-1 text-xs text-[rgb(var(--muted))] ring-1 ring-white/10">
-          {item.duration}
-        </div>
-      </div>
-
-      <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[rgb(var(--muted))]">
-        {item.achievements.map((a) => (
-          <li key={a} className="flex gap-2">
-            <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-purple-400" />
-            <span>{a}</span>
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-5 flex flex-wrap gap-2">
-        {item.tech.map((t) => (
-          <span
-            key={t}
-            className="rounded-full bg-white/5 px-2.5 py-1 text-[11px] text-[rgb(var(--muted))] ring-1 ring-white/10"
-          >
-            {t}
-          </span>
-        ))}
-      </div>
-    </>
-  )
-}
-
 export function Experience() {
   return (
     <section id="experience" className="py-16 sm:py-20">
@@ -52,55 +14,76 @@ export function Experience() {
         />
 
         <div className="relative mt-10">
-          {/* Vertical timeline line — hidden on mobile, centered on desktop */}
-          <div className="absolute left-3 top-0 h-full w-px bg-white/10 sm:left-1/2 sm:-translate-x-1/2" />
+          {/* Vertical line: Mobile = left, Desktop = center */}
+          <div className="absolute left-4 top-0 h-full w-px bg-white/10 sm:left-1/2 sm:-translate-x-1/2" />
 
-          <div className="space-y-6">
-            {EXPERIENCE.map((item, idx) => (
-              <motion.div
-                key={item.company + item.duration}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.55, delay: idx * 0.04 }}
-                className="relative grid pl-10 sm:pl-0 sm:grid-cols-[1fr_3rem_1fr] sm:items-start"
-              >
-                {/* LEFT slot — card for odd items, empty for even */}
-                <div className={idx % 2 !== 0 ? 'sm:pr-4' : 'hidden sm:block'}>
-                  {idx % 2 !== 0 && (
-                    <div className="glass rounded-3xl p-6">
-                      <CardContent item={item} />
-                    </div>
-                  )}
-                </div>
+          <div className="space-y-8 sm:space-y-12">
+            {EXPERIENCE.map((item, idx) => {
+              const isRightSide = idx % 2 === 0 // Items 0, 2, 4 go on the right side on desktop
 
-                {/* CENTER — dot, always column 2 */}
-                <div className="hidden sm:flex sm:items-start sm:justify-center sm:pt-6">
-                  <div className="grid h-6 w-6 place-items-center rounded-full border border-white/15 bg-[rgb(var(--card))]">
-                    <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400" />
+              return (
+                <motion.div
+                  key={item.company + item.duration}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ duration: 0.55, delay: idx * 0.04 }}
+                  className="relative grid gap-4 pl-12 sm:grid-cols-2 sm:pl-0"
+                >
+                  {/* The Timeline Marker (Pill shape on the line) */}
+                  <div
+                    className={[
+                      'absolute top-6 flex h-6 w-11 -translate-x-1/2 -translate-y-1/2 items-center rounded-full border border-white/20 bg-[rgb(var(--card))] px-1',
+                      // Mobile: line is at left-4
+                      'left-4',
+                      // Desktop: line is at left-1/2
+                      'sm:left-1/2',
+                      // Inner dot alignment: right-side cards have dot on right, left-side on left
+                      isRightSide ? 'justify-end' : 'justify-start',
+                    ].join(' ')}
+                  >
+                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400" />
                   </div>
-                </div>
 
-                {/* RIGHT slot — card for even items, empty for odd */}
-                <div className={idx % 2 === 0 ? 'sm:pl-4' : 'hidden sm:block'}>
-                  {idx % 2 === 0 && (
-                    <div className="glass rounded-3xl p-6">
-                      <CardContent item={item} />
+                  <div
+                    className={[
+                      'relative glass rounded-3xl p-6',
+                      isRightSide ? 'sm:col-start-2 sm:ml-6' : 'sm:col-start-1 sm:mr-6',
+                    ].join(' ')}
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div>
+                        <div className="text-sm font-semibold">{item.role}</div>
+                        <div className="mt-1 text-sm text-[rgb(var(--muted))]">{item.company}</div>
+                      </div>
+                      <div className="rounded-full bg-white/5 px-3 py-1 text-xs text-[rgb(var(--muted))] ring-1 ring-white/10">
+                        {item.duration}
+                      </div>
                     </div>
-                  )}
-                </div>
 
-                {/* MOBILE — always show card (ignores left/right columns) */}
-                <div className="glass rounded-3xl p-6 sm:hidden">
-                  <CardContent item={item} />
-                </div>
+                    <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[rgb(var(--muted))]">
+                      {item.achievements.map((a) => (
+                        <li key={a} className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-purple-400" />
+                          <span>{a}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                {/* Mobile dot */}
-                <div className="absolute left-3 top-6 grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full border border-white/15 bg-[rgb(var(--card))] sm:hidden">
-                  <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400" />
-                </div>
-              </motion.div>
-            ))}
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {item.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-white/5 px-2.5 py-1 text-[11px] text-[rgb(var(--muted))] ring-1 ring-white/10"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </Container>
