@@ -30,19 +30,19 @@ export function Experience() {
                   transition={{ duration: 0.55, delay: idx * 0.04 }}
                   className="relative grid gap-4 pl-12 sm:grid-cols-2 sm:pl-0"
                 >
-                  {/* The Timeline Marker (Pill shape on the line) */}
+                  {/* The Timeline Marker */}
                   <div
                     className={[
-                      'absolute top-6 flex h-6 w-11 -translate-x-1/2 -translate-y-1/2 items-center rounded-full border border-white/20 bg-[rgb(var(--card))] px-1',
-                      // Mobile: line is at left-4
-                      'left-4',
-                      // Desktop: line is at left-1/2
-                      'sm:left-1/2',
-                      // Inner dot alignment: right-side cards have dot on right, left-side on left
-                      isRightSide ? 'justify-end' : 'justify-start',
+                      'absolute top-6 flex -translate-x-1/2 -translate-y-1/2 items-center rounded-full border border-white/20 bg-[rgb(var(--card))]',
+                      // Mobile: Circle shape placed on left line
+                      'left-4 h-6 w-6 justify-center',
+                      // Desktop: Pill shape placed on center line
+                      'sm:left-1/2 sm:w-11 sm:px-1',
+                      // Desktop Inner dot alignment
+                      isRightSide ? 'sm:justify-end' : 'sm:justify-start',
                     ].join(' ')}
                   >
-                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400" />
+                    <div className="h-3 w-3 sm:h-2.5 sm:w-2.5 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400" />
                   </div>
 
                   <div
