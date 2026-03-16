@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { BarChart3, GitFork, Star, Users } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
+import { GitHubCalendar } from 'react-github-calendar'
 import { SITE } from '../data/siteData'
 import { Container } from './Container'
 import { SectionHeading } from './SectionHeading'
@@ -93,7 +94,6 @@ export function GitHubStats() {
   const langStats = `https://github-readme-stats.vercel.app/api/top-langs/?username=${encodeURIComponent(
     username,
   )}&layout=compact&theme=transparent`
-  const contrib = `https://ghchart.rshah.org/${encodeURIComponent(username)}`
 
   return (
     <section id="github" className="py-16 sm:py-20">
@@ -173,13 +173,18 @@ export function GitHubStats() {
           transition={{ duration: 0.55 }}
           className="glass mt-4 overflow-hidden rounded-3xl p-4"
         >
-          <div className="text-sm font-semibold">Contribution graph</div>
-          <div className="mt-3 overflow-x-auto">
-            <img
-              src={contrib}
-              alt="GitHub contributions graph"
-              loading="lazy"
-              className="min-w-[720px] opacity-90"
+          <div className="text-sm font-semibold mb-2">Contribution graph</div>
+          <div className="mt-4 overflow-x-auto flex w-full justify-center">
+            <GitHubCalendar
+              username={username}
+              colorScheme="dark"
+              theme={{
+                light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+                dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+              }}
+              fontSize={12}
+              blockSize={12}
+              blockMargin={4}
             />
           </div>
         </motion.div>
