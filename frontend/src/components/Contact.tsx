@@ -34,7 +34,7 @@ export function Contact() {
         "gntrbXVFtXw1f1A3B"
       )
 
-      alert("Message sent successfully 🚀")
+      alert("Message sent successfully! I'll get back to you soon.")
       reset()
 
     } catch (error) {
@@ -123,9 +123,10 @@ export function Contact() {
 
             {isSubmitSuccessful ? (
               <div className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
-                🚀 Message sent! I'll get back to you soon.
+                Message sent! I'll get back to you soon.
               </div>
-            ) : null}
+            ) :
+              null}
           </motion.form>
 
           <motion.div
