@@ -53,7 +53,7 @@ export const SITE = {
     'Performance + UX',
   ],
   resumeUrl: resumePdf as string,
-  githubUsername: import.meta.env.VITE_GITHUB_USERNAME || 'Muzammil8166',
+  githubUsername: import.meta.env.VITE_GITHUB_USERNAME || 'muzammil8166',
 }
 
 export const NAV: { id: NavSectionId; label: string }[] = [
@@ -67,7 +67,7 @@ export const NAV: { id: NavSectionId; label: string }[] = [
 ]
 
 export const SOCIALS: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/Muzammil8166', icon: FaGithub },
+  { label: 'GitHub', href: 'https://github.com/muzammil8166', icon: FaGithub },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/muzammil-kureshi-0395432a5', icon: FaLinkedin },
   { label: 'Twitter/X', href: 'https://x.com/Muzammil_8166', icon: FaXTwitter },
 ]
@@ -119,7 +119,7 @@ export const PROJECTS: Project[] = [
       'A production-grade storefront with auth, cart/checkout, admin dashboards, and search—optimized for performance and conversion.',
     image: '/project-ecommerce.svg',
     tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    githubUrl: 'https://github.com/Muzammil8166/',
+    githubUrl: 'https://github.com/muzammil8166/',
     liveUrl: 'https://example.com',
   },
   {
@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
       'Socket.io powered chat with presence, typing indicators, DMs, and message search—built for low latency at scale.',
     image: '/project-chat.svg',
     tags: ['React', 'Socket.io', 'Express', 'Redis'],
-    githubUrl: 'https://github.com/Muzammil8166/',
+    githubUrl: 'https://github.com/muzammil8166/',
     liveUrl: 'https://example.com',
   },
   {
@@ -137,7 +137,7 @@ export const PROJECTS: Project[] = [
       'Role-based analytics dashboard with subscriptions, feature flags, and a polished design system.',
     image: '/project-saas.svg',
     tags: ['TypeScript', 'React', 'PostgreSQL', 'Prisma'],
-    githubUrl: 'https://github.com/Muzammil8166/',
+    githubUrl: 'https://github.com/muzammil8166/',
     liveUrl: 'https://example.com',
   },
   {
@@ -146,7 +146,7 @@ export const PROJECTS: Project[] = [
       'AI-assisted authoring, markdown workflows, and SEO-focused publishing—built with performance-first rendering.',
     image: '/project-ai-blog.svg',
     tags: ['Next.js', 'OpenAI', 'Tailwind', 'MDX'],
-    githubUrl: 'https://github.com/Muzammil8166/',
+    githubUrl: 'https://github.com/muzammil8166/',
     liveUrl: 'https://example.com',
   },
   {
@@ -155,7 +155,7 @@ export const PROJECTS: Project[] = [
       'Kanban + timelines, real-time collaboration, and smart notifications—designed for high-leverage teams.',
     image: '/project-pm.svg',
     tags: ['React', 'Node.js', 'PostgreSQL', 'WebSockets'],
-    githubUrl: 'https://github.com/Muzammil8166/',
+    githubUrl: 'https://github.com/muzammil8166/',
     liveUrl: 'https://example.com',
   },
 ]
