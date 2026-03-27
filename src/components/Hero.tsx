@@ -160,7 +160,7 @@ export function Hero() {
                   </div>
                   <a
                     href={`mailto:${SITE.email}`}
-                    className="mt-1 block text-sm font-semibold text-purple-500 dark:text-purple-300 hover:text-purple-400"
+                    className="mt-1 block text-sm font-semibold text-purple-500 hover:text-purple-700"
                   >
                     {SITE.email}
                   </a>
