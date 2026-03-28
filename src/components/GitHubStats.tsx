@@ -88,9 +88,7 @@ export function GitHubStats() {
     },
   ] as const
 
-  const readmeStats = `https://github-readme-stats.vercel.app/api?username=${encodeURIComponent(
-    username,
-    )}&show_icons=true&hide_title=true&rank_icon=github&theme=transparent`
+  const readmeStats = `https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=${username}&show_icons=true&hide_title=true&theme=transparent`
   const langStats = `https://github-readme-stats.vercel.app/api/top-langs/?username=${encodeURIComponent(
     username,
   )}&layout=compact&theme=transparent`
