@@ -19,7 +19,10 @@ import { useTheme } from '../hooks/useTheme'
 export default function Home() {
   const { theme, toggle } = useTheme()
   const sectionIds = useMemo(() => NAV.map((n) => n.id), [])
-  const active = useActiveSection(sectionIds)
+  const active = useActiveSection(sectionIds, {
+    preferredThreshold: 0.5,
+    rootMargin: '-20% 0px -55% 0px',
+  })
 
   return (
     <div className="min-h-screen">

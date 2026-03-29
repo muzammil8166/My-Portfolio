@@ -5,11 +5,12 @@ import { NAV } from '../data/siteData'
 import type { NavSectionId } from '../data/siteData'
 import { Container } from './Container'
 import { Button } from './Button'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
-function scrollToId(id: NavSectionId) {
+function scrollToId(id: NavSectionId, behavior: ScrollBehavior) {
   const el = document.getElementById(id)
   if (!el) return
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  el.scrollIntoView({ behavior, block: 'start' })
 }
 
 export function Navbar(props: {
@@ -17,6 +18,8 @@ export function Navbar(props: {
   theme: 'dark' | 'light'
   onToggleTheme: () => void
 }) {
+  const reducedMotion = usePrefersReducedMotion()
+  const scrollBehavior: ScrollBehavior = reducedMotion ? 'auto' : 'smooth'
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -54,7 +57,7 @@ export function Navbar(props: {
       >
         <Container className="flex h-16 items-center justify-between">
           <button
-            onClick={() => scrollToId('home')}
+            onClick={() => scrollToId('home', scrollBehavior)}
             className="group inline-flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-semibold tracking-tight hover:bg-[rgb(var(--fg))]/5"
           >
             <span className="relative grid h-6 w-6 place-items-center rounded-lg bg-[rgb(var(--fg))]/5 ring-1 ring-[rgb(var(--fg))]/10">
@@ -71,7 +74,7 @@ export function Navbar(props: {
               return (
                 <button
                   key={item.id}
-                  onClick={() => scrollToId(item.id)}
+                  onClick={() => scrollToId(item.id, scrollBehavior)}
                   className={[
                     'relative rounded-xl px-3 py-2 text-sm transition',
                     isActive
@@ -114,7 +117,7 @@ export function Navbar(props: {
             <Button
               variant="secondary"
               className="hidden md:inline-flex"
-              onClick={() => scrollToId('contact')}
+              onClick={() => scrollToId('contact', scrollBehavior)}
             >
               Let’s talk
             </Button>
@@ -165,7 +168,7 @@ export function Navbar(props: {
                     className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm text-[rgb(var(--fg))] hover:bg-[rgb(var(--fg))]/5"
                     onClick={() => {
                       setOpen(false)
-                      scrollToId(item.id)
+                      scrollToId(item.id, scrollBehavior)
                     }}
                   >
                     <span>{item.label}</span>
