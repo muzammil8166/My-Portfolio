@@ -41,7 +41,7 @@ export type ExperienceItem = {
 
 export const SITE = {
   name: 'Muzammil',
-  role: 'MERN Stack Developer',
+  role: 'Full Stack Developer',
   location: 'Surat',
   email: 'muzammilkureshi.in@gmail.com',
   tagline:
