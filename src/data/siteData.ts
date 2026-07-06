@@ -49,7 +49,7 @@ export const SITE = {
   typingPhrases: [
     'React + TypeScript',
     'Node.js + Express',
-    'MongoDB + PostgreSQL',
+    'MongoDB + SQL',
     'Performance + UX',
     'Code. Create. Deploy.'
   ],
@@ -77,18 +77,19 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     title: 'Frontend',
     skills: [
-      { name: 'React', level: 95 },
-      { name: 'TypeScript', level: 75 },
-      { name: 'Next.js', level: 70 },
-      { name: 'Tailwind CSS', level: 95 },
+      { name: 'HTML/CSS', level: 90 },
+      { name: 'JavaScript', level: 80 },
+      { name: 'React', level: 75 },
+      { name: 'Tailwind CSS', level: 75 },
+      { name: 'TypeScript', level: 65 },
     ],
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Node.js', level: 80 },
-      { name: 'Express.js', level: 85 },
-      { name: 'REST APIs', level: 80 },
+      { name: 'Node.js', level: 65 },
+      { name: 'Express.js', level: 60 },
+      { name: 'REST APIs', level: 70 },
     ],
   },
   {
@@ -102,14 +103,13 @@ export const SKILL_GROUPS: SkillGroup[] = [
     title: 'Tools & DevOps',
     skills: [
       { name: 'Git', level: 90 },
-      { name: 'Docker', level: 78 },
       { name: 'Vercel', level: 85 },
     ],
   },
 ]
 
 export const PROJECTS: Project[] = [
-    {
+  {
     title: 'Point of Sale System',
     description:
       'A production-grade storefront with auth, cart/checkout, admin dashboards, and search—optimized for performance and conversion.',
@@ -149,17 +149,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       'Experienced in React, Redux, and API integration to create responsive and optimized web applications.',
     ],
     tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'TailwindCSS', 'Docker'],
-  },
-  {
-    company: 'Freelancer',
-    role: 'Full Stack Developer',
-    duration: '2021 — 2026',
-    achievements: [
-      'MERN Stack Developer with hands-on experience building full-stack web applications using MongoDB, Express.js, React, and Node.js.',
-      'Delivered scalable, user-friendly solutions with optimized performance and responsive UI tailored to client requirements.',
-    ],
-    tech: ['React', 'Express', 'MySQL', 'Vercel',],
-  },
-  
+  }
+
 ]
 
