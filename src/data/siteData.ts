@@ -100,10 +100,11 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
-    title: 'Tools & DevOps',
+    title: 'Programming Language',
     skills: [
-      { name: 'Git', level: 90 },
-      { name: 'Vercel', level: 85 },
+      { name: 'JavaScript', level: 80 },
+      { name: 'Python', level: 70 },
+      { name: 'C', level: 85 },
     ],
   },
 ]
