@@ -47,11 +47,11 @@ export const SITE = {
   tagline:
     'I build fast, scalable web products with delightful UX—React on the frontend, Node on the backend, and pragmatic architecture everywhere.',
   typingPhrases: [
-    'React + TypeScript',
-    'Node.js + Express',
-    'MongoDB + SQL',
+    'React + JavaScript',
+    'NodeJS + ExpressJS',
+    'MongoDB + REST APIs',
     'Performance + UX',
-    'Code. Create. Deploy.'
+    'Build | Optimize | Deploy'
   ],
   resumeUrl: resumePdf as string,
   githubUsername: import.meta.env.VITE_GITHUB_USERNAME || 'muzammil8166',

@@ -9,7 +9,7 @@ export function Skills() {
       <Container>
         <SectionHeading
           eyebrow="Skills"
-          title="A senior MERN toolkit"
+          title="A Full-Stack Toolkit"
           subtitle="Balanced across frontend craftsmanship, backend reliability, and the tooling needed to ship confidently."
         />
 
