@@ -130,12 +130,12 @@ export function Hero() {
                       UI/UX
                     </span>
                   </li>
-                  <li className="flex items-center justify-between">
+                  {/* <li className="flex items-center justify-between">
                     <span>Performance & DX</span>
                     <span className="font-mono text-xs text-[rgb(var(--fg))]/80">
                       LCP/INP
                     </span>
-                  </li>
+                  </li> */}
                   <li className="flex items-center justify-between">
                     <span>Scalable backend</span>
                     <span className="font-mono text-xs text-[rgb(var(--fg))]/80">
